@@ -1,0 +1,10 @@
+/CPP_Assignment_1/x64
+
+.vs/
+*.user
+*.suo
+~$*
+x64/
+Debug/
+Release/
+/.vs
