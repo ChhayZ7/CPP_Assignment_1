@@ -9,3 +9,9 @@ Debug/
 Release/
 /.vs
 /.vs
+.vs/
+*.suo
+*.db
+*.db-shm
+*.db-wal
+*.opendb
