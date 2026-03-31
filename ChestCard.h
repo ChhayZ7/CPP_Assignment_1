@@ -5,7 +5,7 @@
 // ChestCard
 // Ability: no immediate effect.
 // If banked alongside a Key card, it draws bonus cards from the discard pile equal to
-// the number of cards being banked this turn
+// the number of cards being banked this turn as you moved into your bank
 class ChestCard : public Card {
 public:
 	ChestCard(int value) : Card(value, CardType::Chest) {}
