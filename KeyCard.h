@@ -3,7 +3,7 @@
 #include <string>
 
 // KeyCard
-// Ability: discard the highest value card of any suit from the opponent's bank
+// Ability: no immediate effect, pairs with ChestCard at banking time
 class KeyCard : public Card {
 public:
 	KeyCard(int value) : Card(value, CardType::Key) {}
