@@ -8,10 +8,10 @@ x64/
 Debug/
 Release/
 /.vs
-/.vs
-.vs/
 *.suo
 *.db
 *.db-shm
 *.db-wal
 *.opendb
+/.vs
+.vs/CPP_Assignment_1.slnx/v18/Insiders/Browse.VC.db
