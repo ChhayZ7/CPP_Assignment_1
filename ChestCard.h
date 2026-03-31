@@ -8,7 +8,7 @@
 // the number of cards being banked this turn
 class ChestCard : public Card {
 public:
-	ChestCard(int value) : Card(value, CardType::Cannon) {}
+	ChestCard(int value) : Card(value, CardType::Chest) {}
 	std::string str() const override;
 	void play(Game& game, Player& player) override;
 
