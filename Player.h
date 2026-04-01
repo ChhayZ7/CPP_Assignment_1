@@ -14,7 +14,7 @@ public:
 	void bustDiscard(Game& game);
 	bool isBust() const;
 	int getScore() const;
-	void printPlayerArea() const;
+	void printPlayArea() const;
 	void printBank() const;
 
 	// Getters
