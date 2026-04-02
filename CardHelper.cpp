@@ -32,7 +32,11 @@ static CardType selectSuit(const CardCollection& bank, const std::string& prompt
 				}
 			}
 		}
-		std::cout << " (" << (i + 1) << ") " << top->str() << std::endl;
+		if (top != nullptr) {
+			std::cout << " (" << (i + 1) << ") " << top->str() << std::endl;
+		} else {
+			std::cout << " (" << (i + 1) << ") [No card available]" << std::endl;
+		}
 	}
 
 	// Keep asking until they enter a valid number
