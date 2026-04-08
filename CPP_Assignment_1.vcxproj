@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="CannonCard.h" />
     <ClInclude Include="Card.h" />
+    <ClInclude Include="CardHelper.h" />
     <ClInclude Include="ChestCard.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="HookCard.h" />

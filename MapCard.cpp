@@ -3,7 +3,7 @@
 #include "Card.h"
 #include "Game.h"
 #include "Player.h"
-#include "CardHelper.cpp"
+#include "CardHelper.h"
 
 // MapCard
 // Ability: draw 3 cards from the discard pile, choose one to play into

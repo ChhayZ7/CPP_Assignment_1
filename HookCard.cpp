@@ -3,7 +3,7 @@
 #include "Card.h"
 #include "Game.h"
 #include "Player.h"
-#include "CardHelper.cpp"
+#include "CardHelper.h"
 
 // HookCard
 // Ability: pull the highest value card of any suit from your own bank

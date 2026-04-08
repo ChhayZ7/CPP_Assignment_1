@@ -3,7 +3,7 @@
 #include "Card.h"
 #include "Game.h"
 #include "Player.h"
-#include "CardHelper.cpp"
+#include "CardHelper.h"
 
 // KrakenCard
 // Ability: forces you to draw and play 3 cards from the deck consecutively
@@ -27,7 +27,7 @@ void KrakenCard::play(Game& game, Player& player) {
 
 		bool busted = player.playCard(card, game);
 		if (busted) {
-			// Bust mid-Kraken - discard everythomg amd end the turn immediately
+			// Bust mid-Kraken - discard everything and end the turn immediately
 			player.bustDiscard(game);
 			return;
 		}

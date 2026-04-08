@@ -98,5 +98,8 @@
     <ClInclude Include="KrakenCard.h">
       <Filter>Header Files\cards</Filter>
     </ClInclude>
+    <ClInclude Include="CardHelper.h">
+      <Filter>Header Files\cards</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
