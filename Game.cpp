@@ -63,6 +63,7 @@ void Game::start() {
 
 void Game::runTurn() {
 	Player* player = getCurrentPlayer();
+	player->resetBust(); // reset the player's bust status at the start of their turn
 
 	// Show whose turn it is and what they currently have in their bank
 	std::cout << player->getName() << "'s turn." << std::endl;
@@ -83,6 +84,10 @@ void Game::runTurn() {
 		if (busted) {
 			// Bust - move all cards from the play area to the discard pile and end the turn
 			player->bustDiscard(*this);
+			turnOver = true;
+		} else if (player->hasBustedThisTurn()) {
+			// Bust was already handled inside the card ability (e.g.Kraken)
+			// bustDiscard() was already called, so just end the turn here
 			turnOver = true;
 		}
 		else {

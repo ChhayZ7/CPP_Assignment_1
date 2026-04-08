@@ -4,7 +4,7 @@
 #include <map>
 #include <algorithm>
 
-Player::Player() {
+Player::Player() : _bustedThisTurn(false) {
 	// Pick a random name from the fixed list provided in the spec
 	std::string names[] = { "Sam", "Billy", "Jen", "Zack", "Chhay",
 	"Vivian", "Ken", "Wayne", "Tina", "Marge" };
@@ -36,6 +36,7 @@ bool Player::playCard(Card* card, Game& game) {
 void Player::bankCard(Game& game) {
 	// Give each card a chance to trigger its "on bank" effect before moving.
 	// Only ChestCard actually does anything here (Chest+Key bonus).
+	_bustedThisTurn = false; // reset for next turn
 	for (Card* card : _playArea) {
 		card->willAddToBank(game, *this);
 	}
@@ -52,6 +53,7 @@ void Player::bankCard(Game& game) {
 
 void Player::bustDiscard(Game& game) {
 	// Send every card in the play area to the shared discard pile
+	_bustedThisTurn = true;
 	std::cout << "BUST! " << _name << " loses all cards in play area." << std::endl;
 	for (Card* card : _playArea) {
 		game.addToDiscard(card);

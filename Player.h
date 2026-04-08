@@ -21,11 +21,14 @@ public:
 	const std::string& getName() const { return _name; }
 	CardCollection& getPlayArea() { return _playArea; }
 	CardCollection& getBank() { return _bank; }
+	bool hasBustedThisTurn() const { return _bustedThisTurn; }
+	void resetBust() { _bustedThisTurn = false; }
 
 private:
 	std::string _name;
 	CardCollection _playArea;
 	CardCollection _bank;
+	bool _bustedThisTurn;
 	void printCardCollection(const CardCollection& collection) const;
 
 };
