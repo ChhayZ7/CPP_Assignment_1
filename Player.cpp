@@ -6,8 +6,8 @@
 
 Player::Player() {
 	// Pick a random name from the fixed list provided in the spec
-	std::string names[] = { "Sam", "Billy", "Jen", "Bob", "Sally",
-	"Joe", "Sue", "Sasha", "Tina", "Marge" };
+	std::string names[] = { "Sam", "Billy", "Jen", "Zack", "Chhay",
+	"Vivian", "Ken", "Wayne", "Tina", "Marge" };
 
 	_name = names[rand() % 10];
 }
