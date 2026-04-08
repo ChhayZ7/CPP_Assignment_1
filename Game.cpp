@@ -46,10 +46,10 @@ void Game::start() {
 		std::cout << "--- Round " << _round << ", Turn " << _turn << " ---" << std::endl;
 		runTurn();
 
-		// Update the turn and round counter, and resets the turn to 1 after both players have gone
+		// Update the turn and round counter
 		_turn++;
-		if (_turn > 2) {
-			_turn = 1;
+
+		if (_turn % 2 == 1) {
 			_round++;
 		}
 
