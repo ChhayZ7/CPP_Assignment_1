@@ -43,7 +43,16 @@ CardType selectSuit(const CardCollection& bank, const std::string& prompt) {
 	int choice = 0;
 	while (choice < 1 || choice >(int)suits.size()) {
 		std::cout << "Which card do you pick? ";
-		std::cin >> choice;
+		if (!(std::cin >> choice)) {
+			// clear the error flag and discard the bad input when cin failed
+			std::cin.clear();
+			std::cin.ignore(1000, '\n');
+			std::cout << " Invalid input. Please enter a number." << std::endl;
+			choice = 0; // reset so the loop continues
+		}
+		else if (choice < 1 || choice >(int)suits.size()) {
+			std::cout << " Invalid choice. Please enter a number between 1 and " << suits.size() << "." << std::endl;
+		}
 	}
 	return suits[choice - 1];
 }
