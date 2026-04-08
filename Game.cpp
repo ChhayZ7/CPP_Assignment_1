@@ -75,7 +75,7 @@ void Game::runTurn() {
 	while (!turnOver && !_deck.empty()) {
 		// Draw the top card from the deck
 		Card* card = drawFromDeck();
-		std::cout << player->getName() << " draw a " << card->str() << std::endl;
+		std::cout << player->getName() << " draws a " << card->str() << std::endl;
 
 		// Add the card to the play area
 		// Returns true if this causes a bust

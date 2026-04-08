@@ -23,7 +23,7 @@ void KrakenCard::play(Game& game, Player& player) {
 
 		// Forcibly draw and play each card (the player has no choice)
 		Card* card = game.drawFromDeck();
-		std::cout << " " << player.getName() << " draw a " << card->str() << std::endl;
+		std::cout << " " << player.getName() << " draws a " << card->str() << std::endl;
 
 		bool busted = player.playCard(card, game);
 		if (busted) {
