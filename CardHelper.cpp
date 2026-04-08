@@ -1,11 +1,11 @@
 #include <iostream>
-#include "HookCard.h"
 #include "Card.h"
 #include "Game.h"
 #include "Player.h"
+#include "CardHelper.h"
 
 
-static CardType selectSuit(const CardCollection& bank, const std::string& prompt) {
+CardType selectSuit(const CardCollection& bank, const std::string& prompt) {
 	// Collect one entry per unique suit
 	std::vector<CardType> suits;
 	for (Card* c : bank) {
@@ -47,8 +47,7 @@ static CardType selectSuit(const CardCollection& bank, const std::string& prompt
 	}
 	return suits[choice - 1];
 }
-
-static Card* removeTopCard(CardCollection& collection, CardType suit) {
+Card* removeTopCard(CardCollection& collection, CardType suit) {
 	Card* best = nullptr;
 	int bestIndex = -1;
 
