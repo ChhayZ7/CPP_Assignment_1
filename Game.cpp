@@ -21,6 +21,12 @@ Game::Game(): _currentPlayer(0), _turn(1), _round(1) {
 }
 
 Game::~Game() {
+	// Delete cards in player banks and play areas
+	for (Card* card : _players[0]->getBank()) delete card;
+	for (Card* card : _players[0]->getPlayArea()) delete card;
+	for (Card* card : _players[1]->getBank()) delete card;
+	for (Card* card : _players[1]->getPlayArea()) delete card;
+
 	// Clean up players
 	delete _players[0];
 	delete _players[1];
