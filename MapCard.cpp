@@ -37,7 +37,7 @@ void MapCard::play(Game& game, Player& player) {
 	int choice = 0;
 	while (choice < 1 || choice >(int)drawn.size()) {
 		std::cout << " Which card do you pick? ";
-		std::cin >> choice;
+
 		if (!(std::cin >> choice)) {
 			// clear the error flag and discard the bad input
 			std::cin.clear();
