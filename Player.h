@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PLAYER_H
+#define PLAYER_H
 #include <string>
 #include "Card.h"
 
@@ -17,7 +18,7 @@ public:
 	void printPlayArea() const;
 	void printBank() const;
 
-	// Getters
+	//Getters
 	const std::string& getName() const { return _name; }
 	CardCollection& getPlayArea() { return _playArea; }
 	CardCollection& getBank() { return _bank; }
@@ -32,3 +33,5 @@ private:
 	void printCardCollection(const CardCollection& collection) const;
 
 };
+
+#endif

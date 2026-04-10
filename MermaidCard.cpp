@@ -5,8 +5,8 @@
 #include "Game.h"
 #include "Player.h"
 
-// MermaidCard
-// Ability: none, but Mermaids have higher point values (4-9 instead of 2-7)
+//MermaidCard
+//Ability: none, but Mermaids have higher point values (4-9 instead of 2-7)
 
 std::string MermaidCard::str() const {
 	return "Mermaid(" + std::to_string(_value) + ")";

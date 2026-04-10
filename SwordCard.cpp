@@ -5,9 +5,9 @@
 #include "Player.h"
 #include "CardHelper.h"
 
-// SwordCard
-// Ability: steal the highest value card of any suit from the opponet's bank
-// into your own play area
+//SwordCard
+//Ability: steal the highest value card of any suit from the opponet's bank
+//into your own play area
 std::string SwordCard::str() const {
 	return "Sword(" + std::to_string(_value) + ")";
 }
@@ -26,7 +26,7 @@ void SwordCard::play(Game& game, Player& player) {
 
 	Card* stolen = removeTopCard(otherBank, suit);
 	if (stolen) {
-		// Playing the stolen card into the play area, this could trigger a bust
+		//Playing the stolen card into the play area, this could trigger a bust
 		bool busted = player.playCard(stolen, game);
 		if (busted) {
 			player.bustDiscard(game);
