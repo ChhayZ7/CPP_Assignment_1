@@ -28,7 +28,7 @@ public:
 	const CardType& type() const { return _cardType; }
 	int getValue() const { return _value; }
 
-	// Rreturns the card as a string like "Cannon 3" or "Key 5"
+	// Returns the card as a string like "Cannon 3" or "Key 5"
 	virtual std::string str() const = 0;
 
 	// Executes this card's special ability when its drawn
