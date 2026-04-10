@@ -20,7 +20,7 @@ void ChestCard::play(Game& game, Player& player) {
 void ChestCard::willAddToBank(Game& game, Player& player) {
 	//This runs just before banking, check if a Key is also in the play area
 	bool hasKey = false;
-	for (Card* c: player.getPlayArea()) {
+	for (auto* c: player.getPlayArea()) {
 		if (c->type() == CardType::Key) {
 			hasKey = true;
 			break;
@@ -35,7 +35,7 @@ void ChestCard::willAddToBank(Game& game, Player& player) {
 
 	std::cout << " Chest and Key activated. Added ";
 	bool first = true;
-	for (Card* c : player.getPlayArea()) {
+	for (auto* c : player.getPlayArea()) {
 		if (!first) std::cout << ", ";
 		std::cout << c->str();
 		first = false;

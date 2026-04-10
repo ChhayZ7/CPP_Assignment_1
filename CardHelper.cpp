@@ -8,7 +8,7 @@
 CardType selectSuit(const CardCollection& bank, const std::string& prompt) {
 	//Collect one entry per unique suit
 	std::vector<CardType> suits;
-	for (Card* c : bank) {
+	for (auto* c : bank) {
 		bool found = false;
 		for (CardType t : suits) {
 			if (t == c->type()) {
@@ -25,7 +25,7 @@ CardType selectSuit(const CardCollection& bank, const std::string& prompt) {
 	std::cout << prompt << std::endl;
 	for (int i = 0; i < (int)suits.size(); i++) {
 		Card* top = nullptr;
-		for (Card* c : bank) {
+		for (auto* c : bank) {
 			if (c->type() == suits[i]) {
 				if (top == nullptr || c->getValue() > top->getValue()) {
 					top = c;

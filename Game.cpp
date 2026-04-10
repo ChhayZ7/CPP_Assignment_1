@@ -22,10 +22,10 @@ Game::Game(): _currentPlayer(0), _turn(1), _round(1) {
 
 Game::~Game() {
 	//Delete cards in player banks and play areas
-	for (Card* card : _players[0]->getBank()) delete card;
-	for (Card* card : _players[0]->getPlayArea()) delete card;
-	for (Card* card : _players[1]->getBank()) delete card;
-	for (Card* card : _players[1]->getPlayArea()) delete card;
+	for (auto* card : _players[0]->getBank()) delete card;
+	for (auto* card : _players[0]->getPlayArea()) delete card;
+	for (auto* card : _players[1]->getBank()) delete card;
+	for (auto* card : _players[1]->getPlayArea()) delete card;
 
 	//Clean up players
 	delete _players[0];
@@ -33,9 +33,9 @@ Game::~Game() {
 
 	//Clean up any cards still in the deck or discard pile
 	//(cards in player banks/player areas are already moved here or deleted)
-	for (Card* card : _deck) delete card;
+	for (auto* card : _deck) delete card;
 
-	for (Card* card : _discard) delete card;
+	for (auto* card : _discard) delete card;
 }
 
 void Game::start() {
@@ -172,7 +172,9 @@ void Game::shuffleDeck(CardCollection& cards) {
 
 //Takes the card from the back of the vector (the top of the deck)
 Card* Game::drawFromDeck() {
-	if (_deck.empty()) return nullptr;
+	if (_deck.empty()) {
+		return nullptr;
+	}
 
 	Card* card = _deck.back();
 	_deck.pop_back();
@@ -181,7 +183,9 @@ Card* Game::drawFromDeck() {
 
 //Takes the most recently discarded card from the discard pile
 Card* Game::drawFromDiscard() {
-	if (_discard.empty()) return nullptr;
+	if (_discard.empty()) {
+		return nullptr;
+	}
 
 	Card* card = _discard.back();
 	_discard.pop_back();

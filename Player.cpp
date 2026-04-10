@@ -20,7 +20,7 @@ Player::~Player() {
 bool Player::playCard(Card* card, Game& game) {
 	//Check if there is already a card of the same suit in the play area.
 	//If so, this is a bust and the card is discarded, return true to indicate a bust
-	for (Card* c : _playArea) {
+	for (auto* c : _playArea) {
 		if (c->type() == card->type()) {
 			_playArea.push_back(card);
 			return true; //busted
@@ -37,12 +37,12 @@ void Player::bankCard(Game& game) {
 	//Give each card a chance to trigger its "on bank" effect before moving.
 	//Only ChestCard actually does anything here (Chest+Key bonus).
 	_bustedThisTurn = false; // reset for next turn
-	for (Card* card : _playArea) {
+	for (auto* card : _playArea) {
 		card->willAddToBank(game, *this);
 	}
 
 	//Move all cards from the play area into the bank
-	for (Card* card : _playArea) {
+	for (auto* card : _playArea) {
 		_bank.push_back(card);
 	}
 	_playArea.clear();
@@ -55,7 +55,7 @@ void Player::bustDiscard(Game& game) {
 	//Send every card in the play area to the shared discard pile
 	_bustedThisTurn = true;
 	std::cout << "BUST! " << _name << " loses all cards in play area." << std::endl;
-	for (Card* card : _playArea) {
+	for (auto* card : _playArea) {
 		game.addToDiscard(card);
 	}
 	_playArea.clear();
@@ -77,9 +77,9 @@ bool Player::isBust() const {
 int Player::getScore() const {
 	//Use a map to track the highest value seen for each suit.
 	//Key = suit, Value = highest value of that suit seen so far.
-	std::map<CardType, int> scored;
+	auto scored = std::map<CardType, int>{};
 
-	for (Card* card : _bank) {
+	for (auto* card : _bank) {
 		CardType t = card->type();
 
 		//If we have not seen this suit yet, or this card is worth more, update it
@@ -109,14 +109,14 @@ void Player::printBank() const {
 
 void Player::printCardCollection(const CardCollection& collection) const {
 	//Group all cards by their suit using a map
-	std::map<CardType, std::vector<Card*>> grouped;
-	for (Card* card : collection) {
+	auto grouped = std::map<CardType, std::vector<Card*>>{};
+	for (auto* card : collection) {
 		grouped[card->type()].push_back(card);
 	}
 
 	//Print each suit on its own line, sorted highest value first
 	for (auto& pair : grouped) {
-		std::vector<Card*>& cards = pair.second;
+		auto& cards = pair.second;
 
 		//Sort descending so the highest value card appears first
 		std::sort(cards.begin(), cards.end(), [](Card* a, Card* b) {
@@ -124,7 +124,7 @@ void Player::printCardCollection(const CardCollection& collection) const {
 			});
 
 		std::cout << " ";
-		for (Card* card : cards) {
+		for (auto* card : cards) {
 			std::cout << card->str() << " ";
 		}
 		std::cout << std::endl;

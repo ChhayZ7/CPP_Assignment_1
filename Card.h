@@ -4,7 +4,7 @@
 #include <vector>
 
 //All the possible card suits in the game
-enum CardType
+enum class CardType
 {
 	Cannon,
 	Chest,
